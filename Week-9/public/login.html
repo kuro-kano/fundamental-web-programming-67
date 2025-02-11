@@ -33,12 +33,18 @@
         let result = await response.json();
 
         // console.log(`${result.status}`);
-    
-        if (result.status === "failed") {
+
+        /*
+        if (result.status === "not found") {
             alert(result.message);
         } else if (result.status === "success") {
             alert(result.message);
+        } else if (result.status === "wrong passwd") {
+            alert(result.message)
         }
+        */
+
+        alert(result.message)
     });
 
     </script>

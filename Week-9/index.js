@@ -61,13 +61,14 @@ app.get('/process_check', function (req, res) {
         if (err) throw err;
         console.log("a record founded");
 
-        if (result.length == 0 || logindata.password != result[0].password) {
+        if (result.length == 0) {
             // console.log(`saved_passwd: ${result[0].password}, input_passwd: ${logindata.password}`);
-            return res.json({ status: "failed", message: "Incorrect Username or Password" });
+            return res.json({ status: "not found", message: "Username or Email not found." });
+        } else if (logindata.password != result[0].password) {
+            return res.json({ status: "wrong passwd", message: "Wrong Password, Please try again."})
         }
-
-        console.log(result[0].password);
-        if (logindata.password == result[0].password) {
+        // console.log(result[0].password);
+        else if (logindata.password == result[0].password) {
             return res.json({ status: "success", message: `Login Successfully!!`});
         }
     });
