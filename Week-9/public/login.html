@@ -32,19 +32,9 @@
         let response = await fetch(`/process_check?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`);
         let result = await response.json();
 
-        // console.log(`${result.status}`);
+        console.log(`${result.status}`);
+        alert(result.message);
 
-        /*
-        if (result.status === "not found") {
-            alert(result.message);
-        } else if (result.status === "success") {
-            alert(result.message);
-        } else if (result.status === "wrong passwd") {
-            alert(result.message)
-        }
-        */
-
-        alert(result.message)
     });
 
     </script>
