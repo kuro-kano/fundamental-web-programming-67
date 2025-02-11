@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Data</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #4CAF50;
+            color: white;
+            margin: 0;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-size: 16px;
+        }
+
+        td {
+            padding: 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        td, th {
+            border: 1px solid #ddd;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h2>Hello MySQL Database & Template Engine</h2>
+
+    <!-- สร้างตารางสำหรับแสดงข้อมูล -->
+
+    <table>
+        <tr>
+            <th>Building</th>
+            <th>room_number</th>
+            <th>capacity</th>
+        </tr>
+        <% data.forEach((item)=>{ %>
+            <tr>
+                <td>
+                    <%=item.building%>
+                </td>
+                <td>
+                    <%=item.room_number%>
+                </td>
+                <td>
+                    <%=item.capacity%>
+                </td>
+            </tr>
+        <% }); %>
+    </table>
+</body>
+
+</html>
