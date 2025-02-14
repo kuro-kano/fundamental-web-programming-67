@@ -1,0 +1,19 @@
+<%- include("head") %>
+
+    <body>
+        <%- include("navigation") %>
+
+        <% data.forEach((item)=>{ %>
+
+            <%=item.EmployeeId %>
+                <%=item.FirstName%>
+                    <%=item.LastName%>
+                        <%=item.Title%>
+                            <%=item.Phone%>
+                                <%=item.Email%><br>
+
+                                    <% }); %>
+
+    </body>
+
+    </html>
