@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail <%=data[0].username%>
+    </title>
+
+    <style>
+
+        * {
+            font-family: Arial, sans-serif;
+            font-size: 32px;
+            padding: 10px 5px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <% const userdetail=data[0];%>
+
+    <h1>User Details</h1>
+    </div>
+        <p><b>ID: </b>
+            <%= userdetail.id %>
+        </p>
+        <p><b>First Name: </b>
+            <%= userdetail.first_name %>
+        </p>
+        <p><b>Last Name: </b>
+            <%= userdetail.last_name %>
+        </p>
+        <p><b>Username: </b>
+            <%= userdetail.username %>
+        </p>
+        <p><b>Email: </b>
+            <%= userdetail.email %>
+        </p>
+    <div>
+
+    <a href="/">Back to Users List</a>
+
+</body>
+
+</html>
