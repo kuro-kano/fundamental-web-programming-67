@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        ol {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        li {
+            background: #fff;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        li:hover {
+            transform: scale(1.02);
+        }
+
+        li, ul {
+            list-style-type: none;
+        }
+
+        p {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #555;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+
+        input[type="radio"]:hover {
+            accent-color: #007bff;
+        }
+
+        li ul li:hover {
+            color: #007bff;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h2>Questions</h2>
+
+    <ol>
+
+        <% data.forEach((item)=>{ %>
+            <li>
+                <p>
+                    <%=item.QID%>. <%=item.Stem%>
+                </p>
+                <ul>
+                    <li><input type="radio" value="A">
+                        <%=item.Alt_A%>
+                    </li>
+                    <li><input type="radio" value="B">
+                        <%=item.Alt_B%>
+                    </li>
+                    <li><input type="radio" value="C">
+                        <%=item.Alt_C%>
+                    </li>
+                    <li><input type="radio" value="D">
+                        <%=item.Alt_D%>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- <li>
+            <p>What is the full form of SQL?</p>
+            <ul style="list-style-type: none;">
+                <li><input type="radio" name="q1" value="1"> Structured Query List</li>
+                <li><input type="radio" name="q1" value="2"> Structure Query Language</li>
+                <li><input type="radio" name="q1" value="3"> Sample Query Language</li>
+                <li><input type="radio" name="q1" value="4"> None of these</li>
+            </ul>
+        </li>
+
+        <li>
+            <p>Which of the following is not a valid SQL type?</p>
+            <ul style="list-style-type: none;">
+                <li><input type="radio" name="q2" value="1"> FLOAT</li>
+                <li><input type="radio" name="q2" value="2"> NUMERIC</li>
+                <li><input type="radio" name="q2" value="3"> DECIMAL</li>
+                <li><input type="radio" name="q2" value="4"> CHARACTER</li>
+            </ul>
+        </li>
+
+        <li>
+            <p>Which of the following is not a DDL command?</p>
+            <ul style="list-style-type: none;">
+                <li><input type="radio" name="q3" value="1"> TRUNCATE</li>
+                <li><input type="radio" name="q3" value="2"> ALTER</li>
+            </ul>
+        </li> -->
+            <% }); %>
+    </ol>
+
+</body>
+
+</html>
