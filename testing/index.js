@@ -23,7 +23,7 @@ app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, "/public/register.html"));
 });
 
-app.get('/process_get', function (req, res) {
+app.get('/register', function (req, res) {
     let form = {
         username: req.query.username,
         password: req.query.password
@@ -33,7 +33,7 @@ app.get('/process_get', function (req, res) {
     bcrypt.hash(form.password, 10, (err, hashedPassword) => {
         if (err) throw err;
 
-        let query = `insert into users (username, password) values (${form.username}, ${hashedPassword})`;
+        let query = `insert into users (username, password) values (?, ?)`;
         db.run(query, [form.username, hashedPassword], function (err) {
             if (err) return err.message;
             console.log(`User data inserted`);
@@ -41,6 +41,10 @@ app.get('/process_get', function (req, res) {
         });
     });
 });
+
+app.get('/login', function (req, res) {
+    
+})
 
 app.listen(port, () => {
     console.log(`listening to port ${port}`);
