@@ -33,9 +33,14 @@ app.get('/process_get', function (req, res) {
     bcrypt.hash(form.password, 10, (err, hashedPassword) => {
         if (err) throw err;
 
-        let query = `insert into users (username, password) values (${username}, ${password})`;
-    })
-})
+        let query = `insert into users (username, password) values (${form.username}, ${hashedPassword})`;
+        db.run(query, [form.username, hashedPassword], function (err) {
+            if (err) return err.message;
+            console.log(`User data inserted`);
+            res.send("User registered successfully");
+        });
+    });
+});
 
 app.listen(port, () => {
     console.log(`listening to port ${port}`);
