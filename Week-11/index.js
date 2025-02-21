@@ -38,8 +38,17 @@ app.get('/employees', (req, res) => {
     });
 });
 
-/*
 app.get('/employees/:id', (req, res) => {
+    const query = `SELECT * FROM employees where EmployeeID = '${req.params.id}';`
+    db.all(query, (err, rows) => {
+        if (err) console.log(err.message);
+        console.log(rows);
+        res.send(JSON.stringify(rows));
+    });
+});
+
+/*
+app.post('/employees/:id', (req, res) => {
     const query = `SELECT * FROM employees where EmployeeID = '${req.params.id}';`
     db.all(query, (err, rows) => {
         if (err) console.log(err.message);
@@ -49,14 +58,27 @@ app.get('/employees/:id', (req, res) => {
 });
 */
 
-app.post('/employees/:id', (req, res) => {
-    const query = `SELECT * FROM employees where EmployeeID = '${req.params.id}';`
-    db.all(query, (err, rows) => {
-        if (err) console.log(err.message);
-        console.log(rows);
-        res.send(JSON.stringify(rows));
-    });
+/*
+app.put('/employees/:id', (req, res) => {
+    // req.params.id
+    res.send(`Update employee id : ${req.params.id} completed.`)
 });
+*/
+
+// ------- 3 ------
+app.get("/show", (req, res) => {
+    const endpoint = 'http://localhost:3000/employees';    
+    fetch(endpoint)
+        .then(response => response.json())
+        .then(empl => {
+            // console.log(empl);
+            res.render('show', { data: empl });            
+        })
+        .catch(error => {
+            console.log(error);
+        });
+});
+
 app.listen(port, () => {
   console.log(`Starting node.js at port ${port}`);
 });
