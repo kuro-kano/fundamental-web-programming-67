@@ -38,6 +38,7 @@ app.get('/employees', (req, res) => {
     });
 });
 
+/*
 app.get('/employees/:id', (req, res) => {
     const query = `SELECT * FROM employees where EmployeeID = '${req.params.id}';`
     db.all(query, (err, rows) => {
@@ -46,7 +47,16 @@ app.get('/employees/:id', (req, res) => {
         res.send(JSON.stringify(rows));
     });
 });
+*/
 
+app.post('/employees/:id', (req, res) => {
+    const query = `SELECT * FROM employees where EmployeeID = '${req.params.id}';`
+    db.all(query, (err, rows) => {
+        if (err) console.log(err.message);
+        console.log(rows);
+        res.send(JSON.stringify(rows));
+    });
+});
 app.listen(port, () => {
   console.log(`Starting node.js at port ${port}`);
 });
