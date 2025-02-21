@@ -66,13 +66,27 @@ app.put('/employees/:id', (req, res) => {
 */
 
 // ------- 3 ------
-app.get("/show", (req, res) => {
-    const endpoint = 'http://localhost:3000/employees';    
+app.get("/show/:id", (req, res) => {
+    const endpoint = `http://localhost:3000/employees/${req.params.id}`;    
     fetch(endpoint)
         .then(response => response.json())
         .then(empl => {
             // console.log(empl);
             res.render('show', { data: empl });            
+        })
+        .catch(error => {
+            console.log(error);
+        });
+});
+
+app.get("/weather", (req, res) => {
+    // city=ชื่อเมือง country=ตัวย่อประเทศ 
+    const endpoint = 'http://10.0.15.21:8000/weather/bangkok/th';    
+    fetch(endpoint)
+        .then(response => response.json())
+        .then(airq => {
+            console.log(airq);
+            res.render('weather', { data: airq });
         })
         .catch(error => {
             console.log(error);
