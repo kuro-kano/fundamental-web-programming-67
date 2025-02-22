@@ -27,8 +27,27 @@
                     <td><%=item.id%></td>
                     <td><%=item.title%></td>
                     <td><%=item.dl%></td>
-                    <td><%=item.completed%></td>
+                    <td>
+                        <input type="checkbox" 
+                        <%= item.completed ? "checked" : "" %> 
+                        onchange="updateCompletion(<%= item.id %>, this)">
+                    </td>
                 </tr>
+
+                <script>
+                    function updateCompletion(id, checkbox) {
+                        fetch(`/update/${id}`, {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ completed: checkbox.checked })
+                        }).then(response => {
+                            if (!response.ok) {
+                                alert("Error updating todo");
+                            }
+                        }).catch(error => console.log(error));
+                    }
+                </script>
+                
             <% }); %>
         </tbody>
     </table>

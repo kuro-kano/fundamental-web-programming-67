@@ -18,14 +18,47 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-    const query = `select * from todo;`;
-    db.all(query, (err, rows) => {
-        if (err) console.log(err.message);
-        console.log(rows);
-        res.render("todo-list", { data: rows });
+    const endpoint = `http://localhost:3000/todo`;
+    fetch(endpoint)
+    .then(response => response.json())
+    .then(tdl => {
+        console.log(tdl);
+        res.render(`todo-list`, { data: tdl });
+    })
+    .catch(error => {
+        console.log(error);
     });
 });
 
-app.listen(port, '0.0.0.0', () => {
+app.post("/update/:id", (req, res) => {
+    const { id } = req.params;
+    const { completed } = req.body;
+
+    // แปลง Boolean เป็น 1 หรือ 0
+    const completedValue = completed ? 1 : 0;
+
+    const query = `UPDATE todo SET completed = ? WHERE id = ?`;
+
+    db.run(query, [completedValue, id], function (err) {
+        if (err) {
+            console.log("Database error:", err.message);
+            return res.status(500).send("Database Error");
+        }
+        console.log(`Todo ID ${id} updated to ${completedValue}`);
+        res.sendStatus(200);
+    });
+});
+
+
+app.get('/todo', (req, res) => {
+    const query = `select * from todo;`;
+    db.all(query, (err, rows) => {
+        if (err) console.log(err.message);
+        // console.log(rows);
+        res.send(JSON.stringify(rows));
+    });
+});
+
+app.listen(port, () => {
     console.log(`Starting node,js at port ${port}`);
 });
