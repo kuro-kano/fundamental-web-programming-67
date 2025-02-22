@@ -1,7 +1,7 @@
 
 const express = require("express");
 const path = require("path");
-const port = 3000;
+const port = 5000;
 const sqlite3 = require('sqlite3').verbose();
 
 // Creating the Express server
