@@ -12,6 +12,8 @@ let db = new sqlite3.Database('todolist.db', (err) => {
 });
 
 app.use(express.static('public'));
+app.use(express.static('styles'));
+
 app.set('view engine', 'ejs');
 
 app.use(express.json());
@@ -30,14 +32,33 @@ app.get("/", (req, res) => {
     });
 });
 
+app.get('/create', (req, res) => {
+    res.sendFile(path.join(__dirname, "/public/create.html"));
+})
+
+app.get("/add-todo", (req, res) => {
+    let formdata = {
+        todo: req.query.todo,
+        title: req.query.title,
+        dl: req.query.deadline
+    };
+    console.log(formdata);
+    const query = `INSERT INTO todo (Title, Description, Deadline) VALUES ('${formdata.todo}', '${formdata.title}', '${formdata.dl}')`;
+    db.run(query, (err) => {
+        if (err) return console.log(err.message);
+        console.log("Todo inserted successful.");
+    });
+    res.redirect("/")
+});
+
 app.post("/update/:id", (req, res) => {
     const { id } = req.params;
-    const { completed } = req.body;
+    const { status } = req.body;
 
     // แปลง Boolean เป็น 1 หรือ 0
-    const completedValue = completed ? 1 : 0;
+    const completedValue = status ? 1 : 0;
 
-    const query = `UPDATE todo SET completed = ? WHERE id = ?`;
+    const query = `UPDATE todo SET Status = ? WHERE id = ?`;
 
     db.run(query, [completedValue, id], function (err) {
         if (err) {
