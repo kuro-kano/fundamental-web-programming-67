@@ -1,4 +1,5 @@
 import Head from "next/head"
+import Link from "next/link";
 import Image from "next/image";
 import styles from "@/styles/Product.module.css"
 
@@ -22,8 +23,10 @@ export default function Index({products}){
             <div className={styles.container}>
                 {products.map(item => (
                     <div key={item.id}>
-                        <h2 className={styles.title}>{item.title}</h2>
-                    <Image className={styles.image} src={item.thumbnail} width={300} height={300} alt="image" />
+                        <Link href={"/products/" + item.id}>
+                            <h2 className={styles.title}>{item.title}</h2>
+                            <Image className={styles.image} src={item.thumbnail} width={300} height={300} alt="image" />
+                        </Link>
                     </div>
                 ))}
             </div>
