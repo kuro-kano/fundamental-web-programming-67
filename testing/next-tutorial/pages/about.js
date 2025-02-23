@@ -1,8 +1,13 @@
+import styles from "@/styles/About.module.css"
+import Image from "next/image"
 
-export default function about() {
+export default function About() {
     return [
         <>
-            <h1>About page</h1>
+            <div className={styles.container}>
+                <h1 className={styles.title}>About Me</h1>
+                <Image src="/file.svg" width={50} height={50} alt="about" />
+            </div>
         </>
     ]
 }

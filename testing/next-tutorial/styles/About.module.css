@@ -3,6 +3,10 @@
   color: rgb(25, 159, 204);
 }
 
+.title:hover {
+  text-decoration: underline;
+}
+
 .container {
   display: flex;
   flex-direction: column;

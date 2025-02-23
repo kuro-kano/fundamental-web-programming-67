@@ -56,7 +56,6 @@ nav {
 
 nav a {
   color: #010;
-  text-decoration: none;
   margin-left: 12px;
   font-size: 18px;
   padding: 10px;
@@ -82,4 +81,8 @@ footer {
   margin-top: 10px;
   color: #777;
   border-top: 1px solid #eaeaea
+}
+
+a {
+  text-decoration: none;
 }
