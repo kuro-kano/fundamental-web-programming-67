@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
     fetch(endpoint)
     .then(response => response.json())
     .then(ctry => {
-        // * console.log(ctry);
+        // ? console.log(ctry);
         res.render("countries", { data: ctry });
     })
     .catch(error => {
