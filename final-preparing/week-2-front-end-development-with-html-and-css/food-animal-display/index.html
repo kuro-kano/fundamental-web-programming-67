@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>lab2/1</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+  <div id="container">
+  </div>
+
+  <script>
+    const container = document.getElementById('container');
+    let card = '';
+
+    const animals = [
+      { name: 'Som', images: 'https://cdn.wallpapersafari.com/2/57/Gd1kSg.jpg' },
+      { name: 'Dum', images: 'https://preview.redd.it/ltlzfgti2dk51.jpg?auto=webp&s=3aabe11ebb1c954af9b254a1f7c9c4ac6fb53f14' },
+      { name: 'Khaw', images: 'https://i.pinimg.com/originals/c8/76/6e/c8766e0936b2f75e09c5eb59e83a1331.jpg' },
+      { name: 'Tai', images: 'https://th.bing.com/th/id/OIP.vEte91vOgF6qTvwH_-IFLwHaE8?w=600&h=400&rs=1&pid=ImgDetMain' },
+      { name: 'Kii', images: 'https://dinoanimals.pl/wp-content/uploads/2014/10/Maine_coon_11.jpg' },
+      { name: 'Jm', images: 'https://th.bing.com/th/id/R.9af6f415283cc3f516ccda4b368a6550?rik=LPi0XWyPlfmK%2fQ&riu=http%3a%2f%2fimages4.fanpop.com%2fimage%2fphotos%2f20500000%2fCute-cat-random-20510733-1024-768.jpg&ehk=q4X2dzhqybcfGYnypwUXXNGvTxlOqJ%2f793b48WlTwfk%3d&risl=&pid=ImgRaw&r=0' },
+    ];
+
+    animals.forEach(items => {
+      card += `<div class="column"><h3>${items.name}</h3><img src='${items.images}'></div>`
+    });
+
+    container.innerHTML += card;
+
+  </script>
+
+</body>
+</html>
