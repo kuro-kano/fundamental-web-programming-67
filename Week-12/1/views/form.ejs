@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lab12-2</title>
+  </head>
+  <link rel="stylesheet" href="form.css">
+
+  <body>
+    <form action="/savedata" method="POST">
+      <h2>Employee Information</h2>
+      <label>Employee ID:</label>
+      <input
+        type="text"
+        name="CustomerId"
+        autocomplete="off"
+        required
+        placeholder="กรุณากรอกข้อความ"
+        value="<%= data.CustomerId || '' %>"
+      />
+      <label>Firstname:</label>
+      <input
+        type="text"
+        name="FirstName"
+        autocomplete="off"
+        required
+        placeholder="กรุณากรอกข้อความ"
+        value="<%= data.FirstName || '' %>"
+      />
+      <label>Lastname:</label>
+      <input
+        type="text"
+        name="LastName"
+        autocomplete="off"
+        required
+        placeholder="กรุณากรอกข้อความ"
+        value="<%= data.LastName || '' %>"
+      />
+      <label>Address</label>
+      <textarea
+        name="Address"
+        autocomplete="off"
+        required
+        placeholder="กรุณากรอกข้อความ"
+      >
+<%= data.Address || '' %></textarea
+      >
+      <label>Email:</label>
+      <input
+        type="text"
+        name="Email"
+        autocomplete="off"
+        required
+        placeholder="กรุณากรอกข้อความ"
+        value="<%= data.Email || '' %>"
+      />
+      <label>Phone:</label>
+      <input
+        type="text"
+        name="Phone"
+        autocomplete="off"
+        required
+        placeholder="กรุณากรอกข้อความ"
+        value="<%= data.Phone || '' %>"
+      />
+      <div>
+        <button type="submit">Save Data</button>
+        <a href="/showdata"><button type="button">Show Data</button></a>
+        <a href="/cleardata"><button type="button">Clear Data</button></a>
+      </div>
+    </form>
+  </body>
+</html>

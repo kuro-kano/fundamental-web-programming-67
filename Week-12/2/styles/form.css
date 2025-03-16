@@ -1,0 +1,113 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+label {
+  margin-top: 15px;
+  font-weight: 600;
+  color: #555;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0 15px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
+}
+
+textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+::placeholder {
+  color: #aaa;
+  opacity: 1;
+}
+
+div {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"] {
+  background-color: #4a90e2;
+  color: white;
+  width: auto;
+}
+
+button[type="submit"]:hover {
+  background-color: #3a80d2;
+}
+
+button[type="button"] {
+  background-color: #f0f0f0;
+  color: #333;
+  width: auto;
+}
+
+button[type="button"]:hover {
+  background-color: #e0e0e0;
+}
+
+@media (max-width: 600px) {
+  form {
+    padding: 20px;
+    width: 95%;
+  }
+  
+  div {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  button {
+    width: 100%;
+  }
+}
