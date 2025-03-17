@@ -1,74 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>lab12-2</title>
-  </head>
-  <link rel="stylesheet" href="form.css">
-
-  <body>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            margin-left: 15%;
+            text-align: left;
+        }
+        input {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            width: 80%;
+            font-size: 16px;
+        }
+        textarea {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            width: 80%;
+            height: 100px;
+            padding: 12px 20px;
+            box-sizing: border-box;
+            border: 1px solid black;
+            border-radius: 4px;
+            resize: none;
+            font-size: 16px;
+        }
+        div {
+            display: flex;
+            gap: 5px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 5px 5px;
+            font-size: 16px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
     <form action="/savedata" method="POST">
-      <h2>Employee Information</h2>
-      <label>Employee ID:</label>
-      <input
-        type="text"
-        name="CustomerId"
-        autocomplete="off"
-        required
-        placeholder="กรุณากรอกข้อความ"
-        value="<%= data.CustomerId || '' %>"
-      />
-      <label>Firstname:</label>
-      <input
-        type="text"
-        name="FirstName"
-        autocomplete="off"
-        required
-        placeholder="กรุณากรอกข้อความ"
-        value="<%= data.FirstName || '' %>"
-      />
-      <label>Lastname:</label>
-      <input
-        type="text"
-        name="LastName"
-        autocomplete="off"
-        required
-        placeholder="กรุณากรอกข้อความ"
-        value="<%= data.LastName || '' %>"
-      />
-      <label>Address</label>
-      <textarea
-        name="Address"
-        autocomplete="off"
-        required
-        placeholder="กรุณากรอกข้อความ"
-      >
-<%= data.Address || '' %></textarea
-      >
-      <label>Email:</label>
-      <input
-        type="text"
-        name="Email"
-        autocomplete="off"
-        required
-        placeholder="กรุณากรอกข้อความ"
-        value="<%= data.Email || '' %>"
-      />
-      <label>Phone:</label>
-      <input
-        type="text"
-        name="Phone"
-        autocomplete="off"
-        required
-        placeholder="กรุณากรอกข้อความ"
-        value="<%= data.Phone || '' %>"
-      />
-      <div>
-        <button type="submit">Save Data</button>
-        <a href="/showdata"><button type="button">Show Data</button></a>
-        <a href="/cleardata"><button type="button">Clear Data</button></a>
-      </div>
+        <h2>Employee Information</h2>
+        <label>Employee ID:</label>
+        <input type="text" name="CustomerId" autocomplete="off" required placeholder="กรุณากรอกข้อความ" value="<%= data.CustomerId || '' %>">
+        <label>Firstname:</label>
+        <input type="text" name="FirstName" autocomplete="off" required placeholder="กรุณากรอกข้อความ" value="<%= data.FirstName || '' %>">
+        <label>Lastname:</label>
+        <input type="text" name="LastName" autocomplete="off" required placeholder="กรุณากรอกข้อความ" value="<%= data.LastName || '' %>">
+        <label>Address</label>
+        <textarea name="Address" autocomplete="off" required placeholder="กรุณากรอกข้อความ"><%= data.Address || '' %></textarea>
+        <label>Email:</label>
+        <input type="text" name="Email" autocomplete="off" required placeholder="กรุณากรอกข้อความ" value="<%= data.Email || '' %>">
+        <label>Phone:</label>
+        <input type="text" name="Phone" autocomplete="off" required placeholder="กรุณากรอกข้อความ" value="<%= data.Phone || '' %>">
+        <div>
+            <button type="submit">Save Data</button>
+            <a href="/showdata"><button type="button">Show Data</button></a>
+            <a href="/cleardata"><button type="button">Clear Data</button></a>
+        </div>   
     </form>
-  </body>
+</body>
 </html>
